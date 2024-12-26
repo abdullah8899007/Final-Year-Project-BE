@@ -243,3 +243,6 @@ GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
 #facebook login
 FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET')
 FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID')
+
+STRIPE_SECRET_KEY = "your_secret_key"
+STRIPE_PUBLISHABLE_KEY = "your_publishable_key"

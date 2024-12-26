@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.decorators import APIView, api_view
+from rest_framework.decorators import APIView, api_view, action
 from django.db.models import Count, Sum, Avg
 from rest_framework.response import Response
 from rest_framework import status
@@ -55,19 +55,8 @@ class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
-    # def list(self, request, *args, **kwargs):
-    #     queryset = self.filter_queryset(self.get_queryset())
-
-    #     # Serialize the items
-    #     serializer = self.get_serializer(queryset, many=True)
-    #     data = serializer.data
-
-    #     # Calculate the count of items per category
-    #     items_per_category = Item.objects.values('category__name').annotate(num_items=Count('id'))
-
-    #     for category_data in items_per_category:
-    #         category_name = category_data['category__name']
-    #         num_items = category_data['num_items']
-    #         data.append({category_name: num_items})
-
-    #     return Response(data, status=status.HTTP_200_OK)
+    @action(detail=False, methods=['get'], url_path='all_items')
+    def get_all_items(self, request):
+        items = self.get_queryset()
+        serializer = self.get_serializer(items, many=True)
+        return Response(serializer.data)
