@@ -14,7 +14,13 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrdersSerializer
 
     def get_queryset(self):
-        return Orders.objects.select_related('customer').all()
+        return Orders.objects.all()
+
+    @action(detail=False, methods=['get'])
+    def all_orders(self, request):
+        orders = self.get_queryset()
+        serializer = self.get_serializer(orders, many=True)
+        return Response(serializer.data)
 
 
 class InvoiceViewSet(viewsets.ModelViewSet):
