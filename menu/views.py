@@ -19,6 +19,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
+
     # def list(self, request, *args, **kwargs):
     #     queryset = self.get_queryset()
     #     serializer = self.get_serializer(queryset, many=True)
@@ -60,3 +61,8 @@ class ItemViewSet(viewsets.ModelViewSet):
         items = self.get_queryset()
         serializer = self.get_serializer(items, many=True)
         return Response(serializer.data)
+
+class NewCategoryViewSet(viewsets.ModelViewSet):
+    # permission_classes = [IsStaff]
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
