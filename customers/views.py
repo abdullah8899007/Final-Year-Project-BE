@@ -11,3 +11,10 @@ class CustomerViewSet(viewsets.ModelViewSet):
     """
     serializer_class = CustomerSerializer
     queryset = CustomersModel.objects.all()
+
+class NewCustomerViewSet(viewsets.ModelViewSet):
+    """
+    A viewset for viewing and editing user instances.
+    """
+    serializer_class = CustomerSerializer
+    queryset = CustomersModel.objects.all()
