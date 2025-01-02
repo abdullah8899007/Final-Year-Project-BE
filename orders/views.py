@@ -24,7 +24,7 @@ class OrderViewSet(viewsets.ModelViewSet):
 
 
 class InvoiceViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     serializer_class = InvoiceSerializer
 
     def get_queryset(self):
