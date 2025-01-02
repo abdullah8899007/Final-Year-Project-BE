@@ -10,7 +10,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 # Create your views here.
 class OrderViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     serializer_class = OrdersSerializer
 
     def get_queryset(self):
