@@ -30,7 +30,7 @@ class PaymentHistoryViewSet(viewsets.ModelViewSet):
     serializer_class = OrdersSerializer
 
     def get_queryset(self):
-        queryset = Orders.objects.filter(status='Completed').values('customer__name', 'total', 'orderType', 'status',
+        queryset = Orders.objects.filter().values('customer__name', 'total', 'orderType', 'status',
                                                                     'created_at')
         return queryset
 
