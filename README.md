@@ -1,4 +1,4 @@
-# Final Project Group 2 - BE
+# Final Project - BE
 
 
 
